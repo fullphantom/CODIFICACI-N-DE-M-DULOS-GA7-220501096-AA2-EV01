@@ -1,3 +1,4 @@
+
 package ejercicioconexionjdbc;
 
 // Importa todo el paquete java.sql que contiene clases necesarias para trabajar con bases de datos
@@ -29,10 +30,24 @@ public class EjercicioConexionJDBC {
             // Establecer conexión con la base de datos
             conexion = DriverManager.getConnection(url, usuario, password);
             statement = conexion.createStatement();
-          
+            
+            // === CREATE ===
             // Inserta un nuevo artista en la tabla ARTISTA
-            statement.executeUpdate("INSERT INTO ARTISTA(NOMBRE, GENERO_MUSICAL) VALUES('gisell', 'Saya')");
-              // Ejecutar consulta para obtener todos los artistas
+            statement.executeUpdate("INSERT INTO ARTISTA(NOMBRE, GENERO_MUSICAL) VALUES('Emily', 'Infantil')");
+
+            
+            // === UPDATE ===
+            // Actualiza el género musical del artista llamado 'Juliana'
+            //statement.executeUpdate("UPDATE ARTISTA SET GENERO_MUSICAL = 'Pop' WHERE NOMBRE = 'Juliana'");
+
+          
+            // === DELETE ===
+            // Elimina al artista llamado 'Nicolas' de la tabla ARTISTA que se encontraba en el id 16 y 17
+            //statement.executeUpdate("DELETE FROM ARTISTA WHERE NOMBRE = 'Nicolas'");
+        
+
+           
+
             rs = statement.executeQuery("SELECT * FROM ARTISTA");
             // Esto lanzará errore si no hay datos en la tabla
             rs.next(); // mover al primer registro
